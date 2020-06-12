@@ -9,3 +9,7 @@ O Projeto se trata de uma loja virtual de bicletas e equipamentos para a bike co
 - fluxo de compra
 
 **Protótipo navegável** [aqui](https://www.figma.com/proto/FaaAwc3nRRW4cTuxlQPNxw/Bicycle-Shop?node-id=1%3A2&scaling=min-zoom).
+
+## O que eu aprendi com o projeto
+
+- [Controle de versão com Git](./learning/INTRO_TO_GIT.md)
