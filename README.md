@@ -13,4 +13,5 @@ O Projeto se trata de uma loja virtual de bicletas e equipamentos para a bike co
 ## O que eu aprendi com o projeto
 
 - [Controle de versão com Git](./learning/INTRO_TO_GIT.md)
-- [HTML](./learning/INTRO_TO_HTML.md)
+- [Introdução ao HTML](./learning/INTRO_TO_HTML.md)
+- [Executando nossa aplicação em um servidor HTTP simples](./learning/RUNNING_A_HTTP_SERVER.md)
