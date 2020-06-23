@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+button {
+  cursor: pointer;
+}
+
+.header {
+  border-bottom: 1px solid #e8d2d2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 100%;
+  margin: 0 auto;
+  padding: 1rem 0;
+  width: 60%;
+}
+
+.logo {
+  margin: 0;
+}
+
+.logo img {
+  display: block;
+  width: 5rem;
+}
+
+.header-title {
+  color: #827b7b;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.cart {
+  display: flex;
+  justify-content: center;
+  width: 5rem;
+}
+
+.cart-button {
+  background-color: transparent;
+  background-image: url("../assets/cart.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border: none;
+  color: transparent;
+  height: 2rem;
+  width: 2rem;
+  opacity: 1;
+  outline: none;
+  position: relative;
+  transition: opacity 0.15s ease-out;
+}
+
+.cart-button:focus,
+.cart-button:hover {
+  opacity: 0.65;
+}
+
+.cart-button::before {
+  background-color: #b2afa0;
+  border-radius: 100px;
+  color: #fff;
+  content: attr(data-cart-amount);
+  display: flex;
+  font-size: 0.625rem;
+  align-items: center;
+  line-height: 1;
+  justify-content: center;
+  height: 1.125rem;
+  width: 1.125rem;
+  position: absolute;
+  top: -0.75rem;
+  right: -1.125rem;
+}

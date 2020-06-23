@@ -4,18 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link rel="stylesheet" href="./styles/styles.css" />
+
     <title>Bicycle Shop</title>
   </head>
 
   <body>
-    <header>
-      <h1>
+    <header class="header">
+      <h1 class="logo">
         <img src="./assets/logo.svg" alt="Logo da Bicycle Shop" />
       </h1>
 
-      <p>Paixão pela Bike, sede pode desafios</p>
+      <p class="header-title">Paixão pela Bike, sede por desafios</p>
 
-      <button type="button">Carrinho de compras</button>
+      <div class="cart">
+        <button
+          class="cart-button"
+          title="3 produtos adicionados"
+          data-cart-amount="3"
+          type="button"
+        >
+          Carrinho de compras
+        </button>
+      </div>
     </header>
   </body>
 </html>
