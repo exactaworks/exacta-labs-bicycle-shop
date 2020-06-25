@@ -118,6 +118,46 @@ Inicialmente precisamos entender somente o _Descendent Selector_. O seletor desc
 
 O exemplo acima está dizendo que o elemento `img` que estiver dentro de um elemento com a classe `.logo` receberá tais regras.
 
+### Especificidade de seletores
+
+Quando temos regras CSS para o mesmo elemento o que determina qual regra será aplicada é sua especificidade. Há quatro categorias que define o nível de especificidade de um seletor:
+
+- estilos Inline -> peso 1000
+- IDs -> 100
+- classes, atributos e pseudo-classes -> 10
+- elementos e pseudo-elementos -> 1
+- estilos herdados do elemento pai -> 0
+
+Vamos para o seguinte exemplo:
+
+```
+h1 {
+  font-size: 32px;
+}
+
+#article-content h1 {
+  font-size: 48px;
+}
+```
+
+Temos uma regra conflitante, como sabemos qual será aplicada? Vamos lá, o CSS é interpretado da direita para a esquerda, então no primeiro seletor temos o valor 1, no segundo temos o valor 101, valor 1 do elemento `h1` e 100 do ID `#article-content`, sendo assim a segunda regra é mais especifica e portanto será aplicada.
+
+Próximo exemplo:
+
+```
+p {
+  line-height: 1.5;
+}
+
+p {
+  line-height: 1.25;
+}
+```
+
+Novamente regras conflitantes, porém seletores com o mesmo peso, neste caso a última regra será aplicada, pois o CSS é interpretado de cima para baixo.
+
+> **Lembre-se**: CSS é interpretado de cima para baixo, da direita para a esquerda.
+
 ## Box Model
 
 Todo os elementos de bloco no HTML se comportam como uma caixa, com lados, bordas, espaçamento externo (margin), espaçamento interno (padding) e conteúdo. Basicamente o Box Model descreve como as propriedades citada acima se relacionam para compor as dimensões de um elemento:
@@ -131,6 +171,20 @@ A propriedade `display` permite que você defina a maneira como seu elemeno HTML
 ### Flex Box
 
 Flex Box é um modelo de layout unidimensional projetado para facilitar a criação de layouts mais arrojados por meio de linhas (eixo x) e colunas (eixo y), além de possuir capacidades avançadas de alinhamento. As propriedades que compõem o Flex Box estão disponíveis neste [guia](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
+
+## Pseudo-classes
+
+As pseudo-classes nos permitem aplicar um estilo a um elemento em relação ao conteúdo da árvore do documento HTML (`:first-child` primeiro elemento dentro de um nó da árvore), fatores externos como o histórico de navegação (`:visited` em links), o estado do seu conteúdo (como `:checked` em certos elementos de um formulário), ou a posição do mouse sobre o elemento (`:hover` por exemplo).
+
+```
+.button:hover {
+  background-color: #F89B4D;
+}
+```
+
+No exemplo acima o elemento que utilizar a classe `.button` irá alterar o `background-color` quando o cursor do mouse estiver em cima do mesmo.
+
+Veja a lista completa de pseudo-classes neste [link](https://developer.mozilla.org/pt-BR/docs/Web/CSS/Pseudo-classes).
 
 ## Pseudo-elementos
 
