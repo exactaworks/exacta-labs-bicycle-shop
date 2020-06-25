@@ -15,3 +15,4 @@ O Projeto se trata de uma loja virtual de bicletas e equipamentos para a bike co
 - [Controle de versão com Git](./learning/INTRO_TO_GIT.md)
 - [Introdução ao HTML](./learning/INTRO_TO_HTML.md)
 - [Executando nossa aplicação em um servidor HTTP simples](./learning/RUNNING_A_HTTP_SERVER.md)
+- [Introdução ao CSS](./learning/INTRO_TO_CSS.md)

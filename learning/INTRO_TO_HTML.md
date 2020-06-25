@@ -1,6 +1,6 @@
 # Introdução ao HTML
 
-[HTML](https://pt.wikipedia.org/wiki/HTML) (abreviação para HyperText Markup Laguange, Liguagem de Marcação de Hipertexto) é uma linguagem de marcação utilizada na construção de páginas Web. Criada por [Tim Berners-Lee](https://pt.wikipedia.org/wiki/Tim_Berners-Lee), teve a sua primeira versão oficial publicada em 1991.
+[HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML) (abreviação para HyperText Markup Laguange, Liguagem de Marcação de Hipertexto) é uma linguagem de marcação utilizada para estruturar páginas Web. Criada por [Tim Berners-Lee](https://pt.wikipedia.org/wiki/Tim_Berners-Lee), teve a sua primeira versão oficial publicada em 1991.
 
 Podemos imaginar uma página web como um jornal, onde temos um cabeçalho com um título de destaque (a manchete) e um subtítulo, logo em seguida temos vários blocos de textos (parágrafos) e imagens divididos em seções.
 
