@@ -170,7 +170,7 @@ A propriedade `display` permite que você defina a maneira como seu elemeno HTML
 
 ### Flex Box
 
-Flex Box é um modelo de layout unidimensional projetado para facilitar a criação de layouts mais arrojados por meio de linhas (eixo x) e colunas (eixo y), além de possuir capacidades avançadas de alinhamento. As propriedades que compõem o Flex Box estão disponíveis neste [guia](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
+Flex Box é um sistema de layout unidimensional projetado para facilitar a criação de layouts mais arrojados por meio de linhas (eixo x) e colunas (eixo y), além de possuir capacidades avançadas de alinhamento. As propriedades que compõem o Flex Box estão disponíveis neste [guia](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
 
 ## Pseudo-classes
 

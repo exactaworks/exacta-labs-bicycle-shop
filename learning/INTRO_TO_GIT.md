@@ -53,7 +53,7 @@ git status
 
 ### Staging area
 
-O próximo passo de criar ou alterar um arquivo é adicioná-lo na staging area, para isso temos o seguinte comando:
+O próximo passo depois de criar ou alterar um arquivo é adicioná-lo na staging area, para isso temos o seguinte comando:
 
 `git add <file>` ou `git add .` para adicionar todos os arquivos
 
@@ -99,11 +99,11 @@ Para desfazer as alterações em um arquivo que ainda não está _trackeado_, ou
 
 ### `git reset HEAD <file>`
 
-Para remover o arquivo da staging area, lembrando que este comando só removerá o arquivo da staging, para remover a alteração terá que digitar com o comando `git checkout <file>`.
+Para remover o arquivo da staging area, lembrando que este comando só removerá o arquivo da staging, para remover a alteração terá que digitar o comando `git checkout <file>`.
 
 ### `git revert <commit-hash>`
 
-O `revert` desfaz até um devido commit, apagando todos os commits posteriores ao commit informado localmente. Para que essas alterações surtam efeito no remoto é precisa forçar um push com comando `git push --force`. Mas tenha cuidado, pois é uma operação que pode envolver implementações importantes realizadas por outras pessoas, é necessário que a equipe tenha ciência e esteja de acordo com tal operação.
+O `revert` desfaz até um devido commit, apagando todos os commits posteriores ao commit informado localmente. Para que essas alterações surtam efeito no remoto é preciso forçar um push com comando `git push --force`. Mas tenha cuidado, um `push` forçado altera o histórico de commits, o que pode acabar apagando implementações já mergeadas de outros integrantes da equipe, por conta disso é necessário que a equipe tenha ciência e esteja alinhada sobre tal operação.
 
 ## Bonus
 
