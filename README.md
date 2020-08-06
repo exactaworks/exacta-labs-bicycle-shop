@@ -18,3 +18,4 @@ O Projeto se trata de uma loja virtual de bicletas e equipamentos para a bike co
 - [Introdução ao CSS](./learning/INTRO_TO_CSS.md)
 - [Mais elementos HTML e CSS Grid Layout](./MORE_ABOUT_HTML_AND_CSS.md)
 - [Melhorando a arquitetura do CSS com BEM](./BEM_CSS_METHODOLOGY.md)
+- [Introdução ao JavaScript](./learning/INTRO_TO_JAVASCRIPT.md)

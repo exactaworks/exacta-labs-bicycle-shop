@@ -1,6 +1,6 @@
 # Introdução ao CSS
 
-[CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS) (abreviação para Cascading Style Sheets) é uma linguagem utilizada para descrever a apresentação de páginas Web. Digamos que o CSS cuida da parte visual: posicionamento, espaçamento, dimensões, animações, efeitos e colorização dos elementos HTML. Criada por [Bert Bos](https://en.wikipedia.org/wiki/Bert_Bos), teve sua primeira versão publicada em 1996.
+[CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS) (abreviação para Cascading Style Sheets) é uma linguagem utilizada para descrever a apresentação de páginas Web. Digamos que o CSS cuida da parte visual: posicionamento, espaçamento, dimensões, animações, efeitos, colorização dos elementos HTML e layout. Criada por [Bert Bos](https://en.wikipedia.org/wiki/Bert_Bos), teve sua primeira versão publicada em 1996.
 
 ## Formas de utilizar CSS
 
@@ -8,7 +8,7 @@ Existem 3 formas de utilizar o CSS, e cada uma delas influencia o nosso código,
 
 1. Inline (peso 3) - utilizando o atributo `style` em um elemento HTML:
 
-```
+```html
 <p style="color: #999; font-size: 16px">
   Um texto cinza com fonte tamanho 16
 </p>
@@ -16,7 +16,7 @@ Existem 3 formas de utilizar o CSS, e cada uma delas influencia o nosso código,
 
 2. Internal (peso 2) - através da tag `<style>`:
 
-```
+```html
 <style>
   p {
     color: #999;
@@ -27,13 +27,13 @@ Existem 3 formas de utilizar o CSS, e cada uma delas influencia o nosso código,
 
 3. External (peso 1) - através de um arquivo externo com a extensão `.css` que é importado na página através da tag `<link>`:
 
-```
+```html
 <link rel="stylesheet" href="file/path" />
 ```
 
 Se houver regras conflitantes (regras repetidas para o mesmo elemento) que estão sendo aplicadas de formas diferentes, a regra com o peso maior irá sobrescrever a regra com peso menor, vamos ver o seguinte exemplo:
 
-```
+```html
 <style>
   p {
     color: #999;
@@ -54,7 +54,7 @@ Seletores definem em quais elementos um conjunto de regras CSS se aplica. Temos 
 
 1. Seletor por tag:
 
-```
+```css
 p {
   color: #999;
   font-size: 16px;
@@ -63,7 +63,7 @@ p {
 
 2. Seletor por classe:
 
-```
+```css
 .button {
   background-color: #827b7b;
   color: #fff;
@@ -72,7 +72,7 @@ p {
 
 3. Seletor por ID:
 
-```
+```css
 #logo {
   height: 50px;
   width: 50px;
@@ -81,7 +81,7 @@ p {
 
 4. Seletor universal:
 
-```
+```css
 * {
   margin: 0;
 }
@@ -89,10 +89,10 @@ p {
 
 5. Seletor por atributo:
 
-```
+```css
 [type="text"] {
   border: none;
-  border-bottom: 1px solid #CCC;
+  border-bottom: 1px solid #ccc;
 }
 ```
 
@@ -109,10 +109,10 @@ Segue a documentação mais detalhada sobre [seletores CSS](https://developer.mo
 
 Inicialmente precisamos entender somente o _Descendent Selector_. O seletor descendente é representando por um espaço, como no exemplo a seguir:
 
-```
+```css
 .logo img {
   display: block;
-  width: 5rem
+  width: 5rem;
 }
 ```
 
@@ -120,7 +120,7 @@ O exemplo acima está dizendo que o elemento `img` que estiver dentro de um elem
 
 ### Especificidade de seletores
 
-Quando temos regras CSS para o mesmo elemento o que determina qual regra será aplicada é sua especificidade. Há quatro categorias que define o nível de especificidade de um seletor:
+Quando temos regras CSS para o mesmo elemento, o que determina qual regra será aplicada é sua especificidade. Há quatro categorias que definem o nível de especificidade de um seletor:
 
 - estilos Inline -> peso 1000
 - IDs -> 100
@@ -130,7 +130,7 @@ Quando temos regras CSS para o mesmo elemento o que determina qual regra será a
 
 Vamos para o seguinte exemplo:
 
-```
+```css
 h1 {
   font-size: 32px;
 }
@@ -144,7 +144,7 @@ Temos uma regra conflitante, como sabemos qual será aplicada? Vamos lá, o CSS 
 
 Próximo exemplo:
 
-```
+```css
 p {
   line-height: 1.5;
 }
@@ -160,13 +160,13 @@ Novamente regras conflitantes, porém seletores com o mesmo peso, neste caso a �
 
 ## Box Model
 
-Todo os elementos de bloco no HTML se comportam como uma caixa, com lados, bordas, espaçamento externo (margin), espaçamento interno (padding) e conteúdo. Basicamente o Box Model descreve como as propriedades citada acima se relacionam para compor as dimensões de um elemento:
+Todos os elementos de bloco no HTML se comportam como uma caixa, com lados, bordas, espaçamento externo (margin), espaçamento interno (padding) e conteúdo. Basicamente o Box Model descreve como as propriedades citadas acima se relacionam para compor as dimensões de um elemento:
 
 ![Box Model no inspecionador de elementos do Browser](https://s3.amazonaws.com/viking_education/web_development/web_app_eng/css_box_model_chrome.png)
 
 ## Tipos de `display`
 
-A propriedade `display` permite que você defina a maneira como seu elemeno HTML irá ser renderizado. Existem vários tipos de `display`, mas inicialmente só é relevante conhecer estes: `block`, `inline`, `inline-block`, `flex` e `grid`. Veja todas os possíveis valores da propriedade `display` neste [link](https://developer.mozilla.org/pt-BR/docs/Web/CSS/display).
+A propriedade `display` permite que você defina a maneira como seu elemeno HTML irá ser renderizado. Existem vários tipos de `display`, mas inicialmente só é relevante conhecermos estes: `block`, `inline`, `inline-block`, `flex` e `grid`. Veja todos os possíveis valores da propriedade `display` neste [link](https://developer.mozilla.org/pt-BR/docs/Web/CSS/display).
 
 ### Flex Box
 
@@ -174,21 +174,34 @@ Flex Box é um sistema de layout unidimensional projetado para facilitar a cria�
 
 ## Pseudo-classes
 
-As pseudo-classes nos permitem aplicar um estilo a um elemento em relação ao conteúdo da árvore do documento HTML (`:first-child` primeiro elemento dentro de um nó da árvore), fatores externos como o histórico de navegação (`:visited` em links), o estado do seu conteúdo (como `:checked` em certos elementos de um formulário), ou a posição do mouse sobre o elemento (`:hover` por exemplo).
+As pseudo-classes nos permitem aplicar um estilo a um elemento sobre um estado especial. Veja algumas pseudo-classes e seus estados especias:
 
-```
+- `:first-child` primeiro elemento dentro de um nó da árvore de elementos
+- `:last-child` último elemento dentro de um nó da árvore de elementos
+- `:visited` para links visitados)
+- `:checked` quando um checkbox ou radio é marcado
+- `:hover` quando passamos o mouse por cima do elemento
+- `:focus` quando o elemento recebe o foco
+
+```css
 .button:hover {
-  background-color: #F89B4D;
+  background-color: #f89b4d;
 }
 ```
-
-No exemplo acima o elemento que utilizar a classe `.button` irá alterar o `background-color` quando o cursor do mouse estiver em cima do mesmo.
 
 Veja a lista completa de pseudo-classes neste [link](https://developer.mozilla.org/pt-BR/docs/Web/CSS/Pseudo-classes).
 
 ## Pseudo-elementos
 
-Os pseudo-elementos nos permitem selecionar algumas areas internas de um elemento HTML e aplicar estilos em tais. Pseudo-elementos nos permitem selecionar a primeira letra de um elemento ou primeira linha por exemplo. Eles não são aplicáveis em elementos vazios, como `<img>`,`<input>` e `<br>`. Inicialmente vamos nos focar mais no `::before` e `::after`.
+Os pseudo-elementos nos permitem aplicar um estilo em um conteúdo interno de um elemento. Veja abaixo alguns pseudo-elementos e o respectivo conteúdo interno que representa:
+
+- `::first-letter` primeira letra do elemento
+- `::first-line` primeira linha do elemento
+- `::before` inseri conteúdo extra antes do conteúdo do elemento
+- `::after` inseri conteúdo extra depois do conteúdo do elemento
+- `::selection` quando o conteúdo é selecionado pelo cursor
+
+Pseudo-elementos não são aplicáveis em elementos vazios, como `<img>`, `<input>` e `<br>`, pois esses elementos não possibilitam a inserção conteúdo interno.
 
 Veja a lista completa de pseudo-elementos neste [link](https://developer.mozilla.org/pt-BR/docs/Web/CSS/Pseudo-elementos).
 
