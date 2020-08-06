@@ -21,7 +21,7 @@ Confira a lista completa dos tipos de inputs HTML neste [link](https://www.w3sch
 
 O elemento `<select>` é utilizado na criação de lista dropdown, sendo cada item da lista envolvido por um elemento `<option>`. Veja no exemplo:
 
-```
+```html
 <select name="product-sort">
   <option value="lowest-price" selected>Todas as categorias</option>
   <option value="biggest-price">Bicicletas</option>
@@ -34,7 +34,7 @@ Veja mais sobre o elemento `<select>` aqui neste [link](https://developer.mozill
 
 O elemento `<textarea>` é utilizado para inserção de textos longos. Veja o exemplo:
 
-```
+```html
 <textarea id="story">
   Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus delectus consectetur rem explicabo, culpa excepturi blanditiis reprehenderit omnis possimus repellendus.
 </textarea>
@@ -44,7 +44,7 @@ O elemento `<textarea>` é utilizado para inserção de textos longos. Veja o ex
 
 O elemento `<label>` é utilizada para inserção de uma legenda para um campo de formulário. Associamos um `<label>` com outro elemento através do atributo `for` ou inserindo o elemento dentro do elemento `<label>`. Veja o exemplo:
 
-```
+```html
 <label>
   Nome
   <input type="text" id="name" />

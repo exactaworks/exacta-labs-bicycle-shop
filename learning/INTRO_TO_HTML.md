@@ -16,10 +16,10 @@ O propósito do HTML é organizar o conteúdo de uma página web por meio de tag
 
 Uma página HTML tem uma estrutura básica que consiste da seguinte forma:
 
-```
+```html
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
 
     <title>
       Título que aparece na aba do navegador
@@ -58,14 +58,14 @@ Elementos inline são aqueles que estão contidos dentro de elementos em bloco, 
 
 A maioria dos elementos seguem a estrutura de abertura de tag, conteúdo e fechamento de tag, como no exemplo:
 
-```
+```html
 <p>Conteúdo do elemento parágrafo</p>
 ```
 
 Alguns elementos consistem em apenas uma única tag, como a tag `img` que por meio do atributo `src` informamos a localização da imagem a ser carregada:
 
-```
-<img src="image/path">
+```html
+<img src="image/path" />
 ```
 
 Temos vários elementos vazios como `meta`, `input`, `br`, `embed`, e etc. Veja a lista completa de [elementos vazio](https://www.w3.org/TR/2011/WD-html-markup-20110113/syntax.html#syntax-elements).
@@ -76,10 +76,10 @@ O [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) trouxe 
 
 As tags do HTML5 trouxeram mais semântica, mais sentido as nossas páginas. Antes disso dividíamos o conteúdo da seguinte maneira:
 
-```
+```html
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
 
     <title>
       Título que aparece na aba do navegador
@@ -133,10 +133,10 @@ As tags do HTML5 trouxeram mais semântica, mais sentido as nossas páginas. Ant
 
 Agora vamos trocar os elementos `div` por elementos mais semânticos do HTML5, veja o mesmo exemplo:
 
-```
+```html
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
 
     <title>
       Título que aparece na aba do navegador
