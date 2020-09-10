@@ -9,9 +9,7 @@ Existem 3 formas de utilizar o CSS, e cada uma delas influencia o nosso código,
 1. Inline (peso 3) - utilizando o atributo `style` em um elemento HTML:
 
 ```html
-<p style="color: #999; font-size: 16px">
-  Um texto cinza com fonte tamanho 16
-</p>
+<p style="color: #999; font-size: 16px">Um texto cinza com fonte tamanho 16</p>
 ```
 
 2. Internal (peso 2) - através da tag `<style>`:
@@ -90,7 +88,7 @@ p {
 5. Seletor por atributo:
 
 ```css
-[type="text"] {
+[type='text'] {
   border: none;
   border-bottom: 1px solid #ccc;
 }
@@ -230,4 +228,5 @@ Veja a lista completa de pseudo-elementos neste [link](https://developer.mozilla
 
 ## Bonus
 
+- [CSS Vocabulary](http://apps.workflower.fi/vocabs/css/en)
 - [Bernard De Luna: Performance em CSS - BrazilJS 2012](https://www.youtube.com/watch?v=m1iV2C44Duc)
