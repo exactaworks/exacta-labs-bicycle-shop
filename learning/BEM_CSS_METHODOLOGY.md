@@ -6,7 +6,7 @@ O BEM é uma metodologia que estabelece uma convenção de nomes para classes no
 
 A estrutura da metodogia é bem simples, veja o exemplo:
 
-```
+```css
 /* CSS */
 /* Block */
 .card {

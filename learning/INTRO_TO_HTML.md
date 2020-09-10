@@ -21,9 +21,7 @@ Uma página HTML tem uma estrutura básica que consiste da seguinte forma:
   <head>
     <meta charset="utf-8" />
 
-    <title>
-      Título que aparece na aba do navegador
-    </title>
+    <title>Título que aparece na aba do navegador</title>
   </head>
 
   <body>
@@ -81,34 +79,22 @@ As tags do HTML5 trouxeram mais semântica, mais sentido as nossas páginas. Ant
   <head>
     <meta charset="utf-8" />
 
-    <title>
-      Título que aparece na aba do navegador
-    </title>
+    <title>Título que aparece na aba do navegador</title>
   </head>
 
   <body>
     <div>
       <h1>Cabeçalho da nossa página</h1>
 
-      <p>
-        Subtítulo descrevendo resumidamente o conteúdo
-      </p>
+      <p>Subtítulo descrevendo resumidamente o conteúdo</p>
     </div>
 
     <div>
-      <p>
-        Primeiro parágrafo introduzindo o assunto
-      </p>
-      <p>
-        Segundo parágrafo continuando o assunto
-      </p>
+      <p>Primeiro parágrafo introduzindo o assunto</p>
+      <p>Segundo parágrafo continuando o assunto</p>
 
-      <h2>
-        Um título para o próximo tópico da notícia
-      </h2>
-      <p>
-        Terceiro parágrafo e assim vai ...
-      </p>
+      <h2>Um título para o próximo tópico da notícia</h2>
+      <p>Terceiro parágrafo e assim vai ...</p>
 
       <h3>Referências</h3>
 
@@ -138,9 +124,7 @@ Agora vamos trocar os elementos `div` por elementos mais semânticos do HTML5, v
   <head>
     <meta charset="utf-8" />
 
-    <title>
-      Título que aparece na aba do navegador
-    </title>
+    <title>Título que aparece na aba do navegador</title>
   </head>
 
   <body>
@@ -148,25 +132,15 @@ Agora vamos trocar os elementos `div` por elementos mais semânticos do HTML5, v
       <header>
         <h1>Cabeçalho da nossa página</h1>
 
-        <p>
-          Subtítulo descrevendo resumidamente o conteúdo
-        </p>
+        <p>Subtítulo descrevendo resumidamente o conteúdo</p>
       </header>
 
       <section>
-        <p>
-          Primeiro parágrafo introduzindo o assunto
-        </p>
-        <p>
-          Segundo parágrafo continuando o assunto
-        </p>
+        <p>Primeiro parágrafo introduzindo o assunto</p>
+        <p>Segundo parágrafo continuando o assunto</p>
 
-        <h2>
-          Um título para o próximo tópico da notícia
-        </h2>
-        <p>
-          Terceiro parágrafo e assim vai ...
-        </p>
+        <h2>Um título para o próximo tópico da notícia</h2>
+        <p>Terceiro parágrafo e assim vai ...</p>
 
         <h3>Referências</h3>
 

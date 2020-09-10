@@ -24,7 +24,7 @@ var value = 1;
 
 console.log(typeof value); // number
 
-value = "1";
+value = '1';
 
 console.log(typeof value); // string
 
@@ -37,7 +37,7 @@ Outra característica é que a tipagem é fraca, ou seja, o interpretador não v
 
 ```javascript
 var number1 = 1;
-var number2 = "1";
+var number2 = '1';
 
 console.log(number1 + number2); // 11
 
@@ -53,7 +53,7 @@ Para comparar dois valores normalmente em outras linguagens utilizamos o operado
 
 ```javascript
 var number1 = 1;
-var number2 = "1";
+var number2 = '1';
 
 console.log(number1 == number2); // true
 ```
@@ -62,7 +62,7 @@ Para resolver esse tipo de problema foi inserida a comparação de igualdade est
 
 ```javascript
 var number1 = 1;
-var number2 = "1";
+var number2 = '1';
 
 console.log(number1 === number2); // false
 ```
@@ -83,16 +83,16 @@ No JavaScript temos 4 formas de declarar uma variável:
 
 ```javascript
 // Escopo global
-planet = "Terra";
+planet = 'Terra';
 
 // Escopo local (também conhecido como escopo de função)
-var soccerPlayer = "Pelé";
+var soccerPlayer = 'Pelé';
 
 // Escopo do bloco
-let team = "Santos";
+let team = 'Santos';
 
 // Escopo do bloco
-const bestSoccerPlayer = "Pelé";
+const bestSoccerPlayer = 'Pelé';
 ```
 
 ### Global
@@ -101,12 +101,12 @@ Se declararmos uma variável sem nenhuma das palavras chaves `var`, `let` ou `co
 
 ```javascript
 function greetingsForSomeone(someone) {
-  preffix = "Hello ";
+  preffix = 'Hello ';
 
   return preffix + someone;
 }
 
-greetingsForSomeone("Tom"); // Hello Tom
+greetingsForSomeone('Tom'); // Hello Tom
 
 // A variável preffix é acessível de qualquer lugar
 consolo.log(preffix);
@@ -118,12 +118,12 @@ Uma variável declarada com a palavra chave `var` terá seu escopo local (functi
 
 ```javascript
 function greetingsForSomeone(someone) {
-  var preffix = "Hello ";
+  var preffix = 'Hello ';
 
   return preffix + someone;
 }
 
-greetingsForSomeone("Jerry"); // Hello Jerry
+greetingsForSomeone('Jerry'); // Hello Jerry
 
 // A variável preffix não é acessível em escopos externos
 console.log(preffix); // Uncaught ReferenceError: preffix is not defined
@@ -134,11 +134,11 @@ console.log(preffix); // Uncaught ReferenceError: preffix is not defined
 Variáveis declaradas com `let` ou `const` são block scoped, ou seja, acessíveis somente no bloco em que foram declarados ou em blocos internos ao seu:
 
 ```javascript
-const nationality = "argentine";
+const nationality = 'argentine';
 
 // Maradona será o melhor só na cabeça dos argentinos
-if (nationality == "argentine") {
-  const bestSoccerPlayer = "Maradona";
+if (nationality == 'argentine') {
+  const bestSoccerPlayer = 'Maradona';
 }
 
 console.log(bestSoccerPlayer); // Uncaught ReferenceError: bestSoccerPlayer is not defined
@@ -147,16 +147,16 @@ console.log(bestSoccerPlayer); // Uncaught ReferenceError: bestSoccerPlayer is n
 Variáveis declaradas com `let` ou `const` também não podem ser redeclaradas no mesmo bloco:
 
 ```javascript
-let bestSoccerPlayer = "Pelé";
-let bestSoccerPlayer = "Maradona"; // Uncaught SyntaxError: Identifier 'bestSoccerPlayer' has already been declared
+let bestSoccerPlayer = 'Pelé';
+let bestSoccerPlayer = 'Maradona'; // Uncaught SyntaxError: Identifier 'bestSoccerPlayer' has already been declared
 ```
 
 Uma característica peculiar de uma variável declarada com a palavra chave `const` é que ela não pode ser reatribuída e obrigatoriamente precisa ser inicializada:
 
 ```javascript
-const bestSoccerPlayer = "Pelé";
+const bestSoccerPlayer = 'Pelé';
 
-bestSoccerPlayer = "Maradona"; // Uncaught TypeError: Assignment to constant variable.
+bestSoccerPlayer = 'Maradona'; // Uncaught TypeError: Assignment to constant variable.
 
 const bestSoccerPlayerForArgentines; // Uncaught SyntaxError: Missing initializer in const declaration
 ```
@@ -169,7 +169,7 @@ Hoisting significa o ato de utilizar equipamentos para levantar, elevar ou içar
 console.log(whoIsTheBestSoccerPlayer());
 
 function whoIsTheBestSoccerPlayer() {
-  return "Pelé";
+  return 'Pelé';
 }
 ```
 
@@ -177,7 +177,7 @@ Notamos que estranhamente mesmo chamando a função `whoIsTheBestSoccerPlayer()`
 
 ```javascript
 function whoIsTheBestSoccerPlayer() {
-  return "Pelé";
+  return 'Pelé';
 }
 
 console.log(whoIsTheBestSoccerPlayer()); // Pelé
@@ -190,7 +190,7 @@ Uma característica do hoisting de `var` é que a declaração vai para o topo d
 ```javascript
 console.log(bestSoccerPlayer); // undefined
 
-var bestSoccerPlayer = "Pelé";
+var bestSoccerPlayer = 'Pelé';
 
 console.log(bestSoccerPlayer); // Pelé
 ```
@@ -202,15 +202,15 @@ No primeiro `console.log` temos o valor da variável como `undefined`, isso acon
 Vamos relembrar que `let` e `const` são block scoped, ou seja acessíveis no bloco em que foram declaradas, logo então são içadas para o topo do bloco em que foram declaradas, mas não são inicializadas com o valor `undefined`, o que nos força a inicializá-las antes de usá-las. Vejamos o exemplo:
 
 ```javascript
-const nationality = "argentine";
+const nationality = 'argentine';
 
 // Maradona será o melhor se você for argentino
-if (nationality == "argentine") {
+if (nationality == 'argentine') {
   console.log(bestSoccerPlayer); // Uncaught ReferenceError: Cannot access 'bestSoccerPlayer' before initialization
 
-  let bestSoccerPlayer = "Maradona";
+  let bestSoccerPlayer = 'Maradona';
 
-  console.log("El mejor jugador es " + bestSoccerPlayer);
+  console.log('El mejor jugador es ' + bestSoccerPlayer);
 }
 ```
 
@@ -260,10 +260,10 @@ No JavaScript temos 6 tipos primitivos de dados:
 A principal característica de um tipo primitivo é de ser imutável, ou seja, só conseguimos definir seu valor em sua criação, após isso não conseguimos mais alterá-lo, para ficar mais claro vamos ver o seguinte exemplo:
 
 ```javascript
-const text = "This is a string.";
+const text = 'This is a string.';
 
 // Alterando a segunda letra da string
-text[1] = "H";
+text[1] = 'H';
 
 console.log(text); // This is a string.
 ```
@@ -273,8 +273,8 @@ console.log(text); // This is a string.
 Tipos primitivos armazenam valores, portanto quando é feita uma comparação ou atribuição entre variáveis, essa comparação ou atribuição é feita por valor, vamos ver o exemplo:
 
 ```javascript
-let bananaBR = "Banana";
-const bananaUSA = "Banana";
+let bananaBR = 'Banana';
+const bananaUSA = 'Banana';
 
 // Comparando valores
 console.log(bananaBR === bananaUSA); // true
@@ -310,13 +310,13 @@ No exemplo abaixo 2 objetos com a mesma estrutura e valores são diferentes quan
 
 ```javascript
 const user = {
-  name: "Eric dos Reis",
-  email: "eric@exactaworks.com.br",
+  name: 'Eric dos Reis',
+  email: 'eric@exactaworks.com.br',
 };
 
 const customer = {
-  name: "Eric dos Reis",
-  email: "eric@exactaworks.com.br",
+  name: 'Eric dos Reis',
+  email: 'eric@exactaworks.com.br',
 };
 
 console.log(user === customer); // false
@@ -326,7 +326,7 @@ Quando um objeto é alterado, essa alteração se refletirá em todos os lugares
 
 ```javascript
 const plansPrices = [30, 180, 360];
-let promotionalPlansPrices = plansPrices;
+const promotionalPlansPrices = plansPrices;
 
 for (let i = 0; i < promotionalPlansPrices.length; i++) {
   promotionalPlansPrices[i] =
@@ -345,36 +345,36 @@ Um objeto é um coleção dinâmica de chaves e valores de qualquer tipo de dado
 ```javascript
 // Objeto literal
 const customer = {
-  name: "Eric",
-  email: "eric@exactaworks.com.br",
+  name: 'Eric',
+  email: 'eric@exactaworks.com.br',
   phone: null,
   adresses: [
     {
-      address: "Av. João Barbosa",
-      number: "111",
-      complement: "",
-      district: "Centro",
-      zipCode: "14801000",
-      city: "Araraquara",
-      state: "SP",
-      country: "Brasil",
+      address: 'Av. João Barbosa',
+      number: '111',
+      complement: '',
+      district: 'Centro',
+      zipCode: '14801000',
+      city: 'Araraquara',
+      state: 'SP',
+      country: 'Brasil',
       isMain: true,
     },
   ],
-  ["documentNumber"]: "481277775",
+  ['documentNumber']: '481277775',
 };
 
 // Acessamos uma propriedade do objeto no formato dot notation -> objeto.propriedade
 console.log(customer.name); // Eric
 
 // Também podemos acessar uma propriedade no formato bracket notation -> objeto['propriedade']
-console.log(customer["email"]); // eric@exactaworks.com.br
+console.log(customer['email']); // eric@exactaworks.com.br
 
 // Utilizamos a palavra reservada delete para apagar uma propriedade de um objeto
 delete customer.documentNumber;
 
 // Adicionando uma nova propriedade ao objeto
-customer.gender = "male";
+customer.gender = 'male';
 
 console.log(customer);
 ```
@@ -385,8 +385,8 @@ Temos 4 formas de declarar um objeto em JavaScript:
 
 ```javascript
 const car = {
-  model: "Model S",
-  brand: "Tesla",
+  model: 'Model S',
+  brand: 'Tesla',
 };
 ```
 
@@ -398,7 +398,7 @@ function Car(model, brand) {
   this.brand = brand;
 }
 
-const myCar = new Car("Model S", "Tesla");
+const myCar = new Car('Model S', 'Tesla');
 
 console.log(myCar.model); // Model S
 ```
@@ -407,8 +407,8 @@ console.log(myCar.model); // Model S
 
 ```javascript
 const myCar = Object.create({
-  model: "Model S",
-  brand: "Tesla",
+  model: 'Model S',
+  brand: 'Tesla',
 });
 
 console.log(myCar.brand); // Tesla
@@ -428,9 +428,9 @@ class Car {
   }
 }
 
-const myCar = new Car("Model S", "Tesla");
+const myCar = new Car('Model S', 'Tesla');
 
-myCar.getInfo();
+myCar.getInfo(); // Tesla Model S
 ```
 
 Na linguagem JavaScript temos objeto global `Object`, que conta com várias funcionalidades úteis para o nosso dia a dia. Veja a documentação completa neste [link](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object).
@@ -444,17 +444,17 @@ Temos 2 formas para criar uma array em JavaScript:
 1. Forma básica
 
 ```javascript
-const teslaCars = ["Model S", "Model X", "Model 3", "Model Y"];
+const teslaCars = ['Model S', 'Model X', 'Model 3', 'Model Y'];
 
-console.log(teslaCars); // ["Model S", "Model X", "Model 3", "Model Y"]
+console.log(teslaCars); // ['Model S', 'Model X', 'Model 3', 'Model Y']
 ```
 
 2. Array constructor
 
 ```javascript
-const teslaCars = new Array("Model S", "Model X", "Model 3", "Model Y");
+const teslaCars = new Array('Model S', 'Model X', 'Model 3', 'Model Y');
 
-console.log(teslaCars); // ["Model S", "Model X", "Model 3", "Model Y"]
+console.log(teslaCars); // ['Model S', 'Model X', 'Model 3', 'Model Y']
 ```
 
 Um array pode ou não ser inicializado, e acessamos um índice informando a sua posição:
@@ -462,11 +462,11 @@ Um array pode ou não ser inicializado, e acessamos um índice informando a sua 
 ```javascript
 const teslaCars = [];
 
-teslaCars[0] = "Model S";
-teslaCars[2] = "Model X";
+teslaCars[0] = 'Model S';
+teslaCars[2] = 'Model X';
 
 // Pulamos a posição 1 do array, sim isso é possível
-console.log(teslaCars); // ["Model S", empty, "Model X"]
+console.log(teslaCars); // ['Model S', empty, 'Model X']
 
 // A posição 1 foi inicializada com o valor undefined
 console.log(teslaCars[1]); // undefined
@@ -487,16 +487,16 @@ Um array também pode conter vários tipos de dados:
 
 ```javascript
 const importExtensionsConfig = [
-  "error",
-  "ignorePackages",
+  'error',
+  'ignorePackages',
   {
-    ts: "never",
-    tsx: "never",
+    ts: 'never',
+    tsx: 'never',
   },
   500,
 ];
 
-console.log(importExtensionsConfig); // ["error", "ignorePackages", {…}, 500]
+console.log(importExtensionsConfig); // ['error', 'ignorePackages', {…}, 500]
 ```
 
 A linguagem JavaScript conta com uma vasta API de array, com várias funcionalidades úteis para o nosso dia a dia. Veja a documentação completa neste [link](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array).
@@ -538,15 +538,15 @@ function sum(a, b) {
   return a + b;
 }
 
-multiply(2, 4) // Uncaught ReferenceError: Cannot access 'multiply' before initialization
+multiply(2, 4) // Uncaught TypeError: multiply is not a function
 
-const multiply = function(a, b) {
+var multiply = function(a, b) {
   return a * b;
 }
 
-subtract(10, 2) // Uncaught ReferenceError: Cannot access 'subtract' before initialization
+subtract(10, 2) // Uncaught TypeError: subtract is not a function
 
-const subtract = function subtract(a, b) {
+var subtract = function subtract(a, b) {
   return a - b;
 }
 ```
@@ -563,7 +563,7 @@ Passar funções via parâmetro possibilita um alto grau de dinamismo e reaprove
 
 ```javascript
 const product = {
-  name: "Xiami A2 lite",
+  name: 'Xiaomi A2 lite',
   price: 800,
 };
 
@@ -571,11 +571,11 @@ function taxFormula(price) {
   return price * 0.1;
 }
 
-function calculatePrice(product, taxFormula) {
-  return product.price + taxFormula(product.price);
+function calculatePrice(price = 0, taxFormula) {
+  return price + taxFormula(price);
 }
 
-console.log(calculatePrice(product, taxFormula)); // 880
+console.log(calculatePrice(product.price, taxFormula)); // 880
 ```
 
 #### Retornando uma função
@@ -584,7 +584,7 @@ Agora vamos ver o mesmo exemplo acima, mas agora retornando uma função com a f
 
 ```javascript
 const product = {
-  name: "Xiami A2 lite",
+  name: 'Xiaomi A2 lite',
   price: 800,
 };
 
@@ -601,15 +601,15 @@ console.log(calculatePriceForBrazil(product.price)); // 1120
 console.log(calculatePriceForEUA(product.price)); // 960
 ```
 
-Assim como objetos e arrays, funções também tem uma API com vários utilitários, segue a [documentação](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Function)
+Assim como objetos e arrays, funções também tem uma API com vários utilitários, segue a [documentação](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Function).
 
 ## Closures
 
-Para entender closures vamos recordar o exemplo onde retornamos uma função no tópico sobre funções:
+Para entender closures vamos primeiro recordar o exemplo onde retornamos uma função no tópico sobre funções:
 
 ```javascript
 const product = {
-  name: "Xiami A2 lite",
+  name: 'Xiaomi A2 lite',
   price: 800,
 };
 
@@ -624,7 +624,7 @@ const calculatePriceForBrazil = taxFormulaConfig(0.4);
 console.log(calculatePriceForBrazil(product.price)); // 1120
 ```
 
-No exemplo notamos que o valor do parâmetro `tax` passado na função `taxFormulaConfig` é utilizado dentro da função interna que é retornada, possibilitando que, quando a função interna for executada se lembre do valor do parâmetro `tax` que foi passado em sua criação. Esse macanismo é o closure, que resumindo é um objeto especial que combina duas coisas: a função e o ambiente onde a função foi criada. Este ambiente consiste de quaisquer variáveis que estavam no escopo no momento em que a função foi criada.
+No exemplo notamos que o valor do parâmetro `tax` passado na função `taxFormulaConfig` é utilizado dentro da função interna que é retornada, possibilitando que, quando a função interna for executada se lembre do valor do parâmetro `tax` que foi passado em sua criação. Esse mecanismo é o closure, que resumindo é um objeto especial que combina duas coisas: a função e o ambiente onde a função foi criada. Este ambiente consiste de quaisquer variáveis que estavam no escopo no momento em que a função foi criada.
 
 Para mais detalhes segue a documentação com vários outros exemplos de utilização de [closures](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Closures).
 

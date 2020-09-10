@@ -63,3 +63,4 @@ Uma das coisas mais legais que ganhamos com o CSS Grid Layout é que conseguimos
 ## Bonus
 
 - [CSS Grid Layout e Flexbox - Quando Utilizar](https://www.youtube.com/watch?v=x-4z_u8LcGc)
+- [CSS GRID e FLEXBOX - Quando utilizar?](https://www.youtube.com/watch?v=0mupCznyGqE)
