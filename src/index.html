@@ -38,155 +38,22 @@
         <input placeholder="Buscar produto" class="input" type="search" />
 
         <select class="input">
-          <option value="lowest-price" selected>Todas as categorias</option>
-          <option value="biggest-price">Bicicletas</option>
+          <option value="all" selected>Todas as categorias</option>
+          <option value="bike">Bicicletas</option>
+          <option value="equipment">Equipamentos</option>
         </select>
 
         <select class="input">
-          <option value="all" selected>Menor preço</option>
-          <option value="bike">Maior preço</option>
+          <option value="lowest-price" selected>Menor preço</option>
+          <option value="biggest-price">Maior preço</option>
         </select>
       </section>
 
       <section>
-        <ul class="product-list">
-          <li class="card">
-            <img
-              class="card__image"
-              src="./assets/images/products/mountain-bike.png"
-              alt="Imagem do produto Mountain Bike Everest"
-            />
-
-            <div class="card__info">
-              <p class="card__info__text font--bold">
-                Mountain Bike Everest
-                <span class="font--size-1 display--block">R$ 2250,00</span>
-              </p>
-
-              <button class="button">Adicionar ao carrinho</button>
-            </div>
-          </li>
-
-          <li class="card">
-            <img
-              class="card__image"
-              src="./assets/images/products/speed-bike.png"
-              alt="Imagem do produto Speed Bike Emigrantes"
-            />
-
-            <div class="card__info">
-              <p class="card__info__text font--bold">
-                Speed Bike Emigrantes
-                <span class="font--size-1 display--block">R$ 5640,00</span>
-              </p>
-
-              <button class="button">Adicionar ao carrinho</button>
-            </div>
-          </li>
-
-          <li class="card">
-            <img
-              class="card__image"
-              src="./assets/images/products/classic-bike.png"
-              alt="Imagem do produto Chinatown Classic Bike"
-            />
-
-            <div class="card__info">
-              <p class="card__info__text font--bold">
-                Chinatown Classic Bike
-                <span class="font--size-1 display--block">R$ 799,90</span>
-              </p>
-
-              <button class="button">Adicionar ao carrinho</button>
-            </div>
-          </li>
-
-          <li class="card">
-            <img
-              class="card__image"
-              src="./assets/images/products/gloves.png"
-              alt="Imagem do produto Luvas Tyson"
-            />
-
-            <div class="card__info">
-              <p class="card__info__text font--bold">
-                Luvas Tyson
-                <span class="font--size-1 display--block">R$ 189,90</span>
-              </p>
-
-              <button class="button">Adicionar ao carrinho</button>
-            </div>
-          </li>
-
-          <li class="card">
-            <img
-              class="card__image"
-              src="./assets/images/products/squeezer.png"
-              alt="Imagem do produto Squeezer Squirtle"
-            />
-
-            <div class="card__info">
-              <p class="card__info__text font--bold">
-                Squeezer Squirtle
-                <span class="font--size-1 display--block">R$ 30,00</span>
-              </p>
-
-              <button class="button">Adicionar ao carrinho</button>
-            </div>
-          </li>
-
-          <li class="card">
-            <img
-              class="card__image"
-              src="./assets/images/products/helmet.png"
-              alt="Imagem do produto Capacete Dragon Born"
-            />
-
-            <div class="card__info">
-              <p class="card__info__text font--bold">
-                Capacete Dragon Born
-                <span class="font--size-1 display--block">R$ 650,90</span>
-              </p>
-
-              <button class="button">Adicionar ao carrinho</button>
-            </div>
-          </li>
-
-          <li class="card">
-            <img
-              class="card__image"
-              src="./assets/images/products/tandem-bike.png"
-              alt="Imagem do produto Tandem Bike"
-            />
-
-            <div class="card__info">
-              <p class="card__info__text font--bold">
-                Tandem Bike
-                <span class="font--size-1 display--block">R$ 2299,00</span>
-              </p>
-
-              <button class="button">Adicionar ao carrinho</button>
-            </div>
-          </li>
-
-          <li class="card">
-            <img
-              class="card__image"
-              src="./assets/images/products/mountain-bike.png"
-              alt="Imagem do produto Mountain Bike Everest"
-            />
-
-            <div class="card__info">
-              <p class="card__info__text font--bold">
-                Mountain Bike Everest
-                <span class="font--size-1 display--block">R$ 2250,00</span>
-              </p>
-
-              <button class="button">Adicionar ao carrinho</button>
-            </div>
-          </li>
-        </ul>
+        <ul id="product-list" class="product-list"></ul>
       </section>
     </main>
+
+    <script src="./js/pages/main/index.js" type="module"></script>
   </body>
 </html>
