@@ -33,8 +33,7 @@ class Main {
     setListener('#search-field', 'keyup', this.handleSearchFilter.bind(this));
   }
 
-  handleSearchFilter(event) {
-    const search = event.target.value;
+  handleSearchFilter(search) {
     const searchLength = search.length;
 
     if (searchLength === 0 || searchLength > 1) {
@@ -62,8 +61,8 @@ class Main {
     );
   }
 
-  handleCategoryFilter(event) {
-    this.filters.category = event.target.value;
+  handleCategoryFilter(category) {
+    this.filters.category = category;
 
     this.applyFilters();
   }
@@ -82,8 +81,8 @@ class Main {
     setListener('#sort-field', 'change', this.handleSort.bind(this));
   }
 
-  handleSort(event) {
-    this.filters.sortCriteria = event.target.value;
+  handleSort(sortCriteria) {
+    this.filters.sortCriteria = sortCriteria;
 
     this.applyFilters();
   }
