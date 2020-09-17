@@ -35,17 +35,22 @@
 
     <main class="wrapper">
       <section class="filters">
-        <input placeholder="Buscar produto" class="input" type="search" />
+        <input
+          id="search-field"
+          placeholder="Buscar produto"
+          class="input"
+          type="search"
+        />
 
-        <select class="input">
+        <select id="category-field" class="input">
           <option value="all" selected>Todas as categorias</option>
           <option value="bike">Bicicletas</option>
           <option value="equipment">Equipamentos</option>
         </select>
 
-        <select class="input">
-          <option value="lowest-price" selected>Menor preço</option>
-          <option value="biggest-price">Maior preço</option>
+        <select id="sort-field" class="input">
+          <option value="asc" selected>Menor preço</option>
+          <option value="desc">Maior preço</option>
         </select>
       </section>
 
