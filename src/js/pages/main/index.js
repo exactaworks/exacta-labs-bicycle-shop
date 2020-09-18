@@ -33,7 +33,8 @@ class Main {
     setListener('#search-field', 'keyup', this.handleSearchFilter.bind(this));
   }
 
-  handleSearchFilter(search) {
+  handleSearchFilter(event) {
+    const search = event.target.value.trim();
     const searchLength = search.length;
 
     if (searchLength === 0 || searchLength > 1) {
@@ -43,14 +44,14 @@ class Main {
     }
   }
 
-  filterBySearch(products) {
+  filterBySearch(product) {
     if (this.filters.search === '') {
-      return products;
+      return true;
     }
 
-    return products.filter(({ name }) =>
-      name.toLowerCase().includes(this.filters.search.toLowerCase())
-    );
+    return product.name
+      .toLowerCase()
+      .includes(this.filters.search.toLowerCase());
   }
 
   setCategoryFieldListener() {
@@ -61,51 +62,46 @@ class Main {
     );
   }
 
-  handleCategoryFilter(category) {
-    this.filters.category = category;
+  handleCategoryFilter(event) {
+    this.filters.category = event.target.value;
 
     this.applyFilters();
   }
 
-  filterByCategory(products) {
+  filterByCategory(product) {
     if (this.filters.category === 'all') {
-      return products;
+      return true;
     }
 
-    return products.filter(
-      ({ category }) => category === this.filters.category
-    );
+    return product.category === this.filters.category;
   }
 
   setSortFieldListener() {
     setListener('#sort-field', 'change', this.handleSort.bind(this));
   }
 
-  handleSort(sortCriteria) {
-    this.filters.sortCriteria = sortCriteria;
+  handleSort(event) {
+    this.filters.sortCriteria = event.target.value;
 
     this.applyFilters();
   }
 
-  sortByPrice(products) {
-    let sortedProducts = [...products];
-
+  sortByPrice(a, b) {
     if (this.filters.sortCriteria === 'asc') {
-      sortedProducts.sort((a, b) => a.price - b.price);
-    } else {
-      sortedProducts.sort((a, b) => b.price - a.price);
+      return a.price - b.price;
     }
 
-    return sortedProducts;
+    return b.price - a.price;
   }
 
   applyFilters() {
     const products = [...this.products];
-    const productsByCategory = this.filterByCategory(products);
-    const productsBySearch = this.filterBySearch(productsByCategory);
-    const sortedProducts = this.sortByPrice(productsBySearch);
+    const filteredProducts = products
+      .filter(this.filterByCategory.bind(this))
+      .filter(this.filterBySearch.bind(this))
+      .sort(this.sortByPrice.bind(this));
 
-    this.render(sortedProducts);
+    this.render(filteredProducts);
   }
 
   getRenderElement() {
@@ -113,12 +109,14 @@ class Main {
   }
 
   render(products = []) {
-    let renderContent = `
-      <p>Nenhum resultado obtido com a busca.</p>
-    `;
+    if (!products.length) {
+      return (this.renderElement.innerHTML = `
+        <p>Nenhum resultado obtido com a busca.</p>
+      `);
+    }
 
-    if (products.length) {
-      renderContent = products.reduce((accumulator, product) => {
+    return (this.renderElement.innerHTML = products.reduce(
+      (accumulator, product) => {
         return `
           ${accumulator}
           <li class="card">
@@ -143,10 +141,9 @@ class Main {
             </div>
           </li>
         `;
-      }, '');
-    }
-
-    this.renderElement.innerHTML = renderContent;
+      },
+      ''
+    ));
   }
 }
 
