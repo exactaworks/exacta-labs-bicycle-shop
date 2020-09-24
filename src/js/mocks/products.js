@@ -57,6 +57,4 @@ const products = [
   },
 ];
 
-const getProducts = async () => products;
-
-export { getProducts };
+export { products };
