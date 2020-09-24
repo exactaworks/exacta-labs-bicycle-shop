@@ -28,7 +28,7 @@ export default class ProductsController {
   }
 
   setSearchFieldListener() {
-    setListener('#search-field', 'keyup', this.handleSearchFilter.bind(this));
+    setListener('#search-field', 'input', this.handleSearchFilter.bind(this));
   }
 
   handleSearchFilter(event) {
@@ -36,9 +36,7 @@ export default class ProductsController {
     const searchLength = search.length;
 
     if (searchLength === 0 || searchLength > 1) {
-      this.productsModel.filters.search = search;
-
-      this.applyFilters();
+      this.applyFilters({ search });
     }
   }
 
@@ -51,9 +49,7 @@ export default class ProductsController {
   }
 
   handleCategoryFilter(event) {
-    this.productsModel.filters.category = event.target.value;
-
-    this.applyFilters();
+    this.applyFilters({ category: event.target.value });
   }
 
   setSortFieldListener() {
@@ -61,12 +57,20 @@ export default class ProductsController {
   }
 
   handleSort(event) {
-    this.productsModel.filters.sortCriteria = event.target.value;
-
-    this.applyFilters();
+    this.applyFilters({ sortCriteria: event.target.value });
   }
 
-  applyFilters() {
+  applyFilters({
+    search = this.productsModel.filters.search,
+    sortCriteria = this.productsModel.filters.sortCriteria,
+    category = this.productsModel.filters.category,
+  } = {}) {
+    this.productsModel.filters = {
+      search,
+      sortCriteria,
+      category,
+    };
+
     const products = this.productsModel.applyFilters();
 
     this.productsView.render(products);

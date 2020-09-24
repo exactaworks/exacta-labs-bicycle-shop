@@ -7,7 +7,7 @@ export default class ProductsView extends View {
       return '<p>Nenhum resultado obtido com a busca.</p>';
     }
 
-    return products.reduce((accumulator, ({ id, image, name, price })) => {
+    return products.reduce((accumulator, { id, image, name, price }) => {
       return `
           ${accumulator}
           <li class="card">
