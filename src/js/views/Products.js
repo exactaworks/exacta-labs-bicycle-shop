@@ -7,26 +7,26 @@ export default class ProductsView extends View {
       return '<p>Nenhum resultado obtido com a busca.</p>';
     }
 
-    return products.reduce((accumulator, product) => {
+    return products.reduce((accumulator, ({ id, image, name, price })) => {
       return `
           ${accumulator}
           <li class="card">
             <img
               class="card__image"
-              src="./assets/images/products/${product.image}"
-              alt="Imagem do produto ${product.name}"
+              src="./assets/images/products/${image}"
+              alt="Imagem do produto ${name}"
             />
 
             <div class="card__info">
               <p class="card__info__text font--bold">
-                ${product.name}
+                ${name}
 
                 <span class="font--size-1 display--block">
-                  ${formatToBRL(product.price)}
+                  ${formatToBRL(price)}
                 </span>
               </p>
 
-              <button class="button" data-product-id="${product.id}">
+              <button class="button" data-product-id="${id}">
                 Adicionar ao carrinho
               </button>
             </div>
