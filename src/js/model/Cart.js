@@ -1,4 +1,4 @@
-import { CART_STORAGE_KEY } from '../contants.js';
+import { CART_STORAGE_KEY } from '../constants.js';
 import { setStorageItem, getStorageItem } from '../utils/storage.js';
 
 export default class CartModel {

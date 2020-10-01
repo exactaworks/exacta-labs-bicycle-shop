@@ -1,4 +1,4 @@
-import { APP_STORAGE_KEY } from '../contants.js';
+import { APP_STORAGE_KEY } from '../constants.js';
 
 const setStorageItem = (key, item) => {
   localStorage.setItem(APP_STORAGE_KEY + key, JSON.stringify(item));
