@@ -10,10 +10,6 @@ export default class ProductsModel {
     this.products = [...products];
   }
 
-  getProduct(id) {
-    return this.products.find((product) => product.id === id);
-  }
-
   filterBySearch(product) {
     if (this.filters.search === '') {
       return true;
