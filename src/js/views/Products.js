@@ -18,7 +18,7 @@ export default class ProductsView extends View {
             />
 
             <div class="card__info">
-              <p class="card__info__text font--bold">
+              <p class="card__info__text font-weight--bold">
                 ${name}
 
                 <span class="font--size-1 display--block">
@@ -26,7 +26,7 @@ export default class ProductsView extends View {
                 </span>
               </p>
 
-              <button class="button" data-product-id="${id}">
+              <button class="button button--full-width" data-product-id="${id}">
                 Adicionar ao carrinho
               </button>
             </div>
