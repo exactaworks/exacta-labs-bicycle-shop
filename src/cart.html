@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./styles/styles.css" />
+
+    <title>Bicycle Shop</title>
+  </head>
+
+  <body>
+    <header class="header wrapper">
+      <h1 class="logo">
+        <img
+          class="logo__img"
+          src="./assets/images/logo.svg"
+          alt="Logo da Bicycle Shop"
+        />
+      </h1>
+
+      <p class="header__title">Paixão pela Bike, sede por desafios</p>
+
+      <div id="cart" class="cart"></div>
+    </header>
+
+    <main class="wrapper margin--vertical-1">
+      <section id="cart-detail" class="card padding-1">
+        <h2 class="cart__title">Itens do carrinho</h2>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="text-align--left">Item</th>
+              <th>Qtd</th>
+              <th class="text-align--right">Preço</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td class="text-align--left">Mountain Bike Everest</td>
+              <td class="text-align--center">
+                <div class="flex--middle">
+                  <button
+                    class="button button--transparent margin--horizontal-1"
+                    aria-label="Remover 1"
+                  >
+                    <img
+                      class="icon"
+                      src="./assets/images/remove.svg"
+                      alt="-"
+                    />
+                  </button>
+
+                  <span aria-label="Quantidade do produto">1</span>
+
+                  <button
+                    class="button button--transparent margin--horizontal-1"
+                    aria-label="Adicionar 1"
+                  >
+                    <img class="icon" src="./assets/images/add.svg" alt="+" />
+                  </button>
+                </div>
+              </td>
+              <td class="text-align--right">R$ 2250,00</td>
+              <td class="text-align--right">
+                <button
+                  class="button button--transparent"
+                  aria-label="Remover do carrinho"
+                >
+                  <img src="./assets/images/trash.svg" alt="Ícone remover" />
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="text-align--left">Capacete Dragon Born</td>
+              <td class="text-align--center">
+                <div class="flex--middle">
+                  <button
+                    class="button button--transparent margin--horizontal-1"
+                    aria-label="Remover 1"
+                  >
+                    <img
+                      class="icon"
+                      src="./assets/images/remove.svg"
+                      alt="-"
+                    />
+                  </button>
+
+                  <span aria-label="Quantidade do produto">1</span>
+
+                  <button
+                    class="button button--transparent margin--horizontal-1"
+                    aria-label="Adicionar 1"
+                  >
+                    <img class="icon" src="./assets/images/add.svg" alt="+" />
+                  </button>
+                </div>
+              </td>
+              <td class="text-align--right">R$ 650,90</td>
+              <td class="text-align--right">
+                <button
+                  class="button button--transparent"
+                  aria-label="Remover do carrinho"
+                >
+                  <img src="./assets/images/trash.svg" alt="Ícone remover" />
+                </button>
+              </td>
+            </tr>
+          </tbody>
+
+          <tfoot>
+            <tr>
+              <td class="text-align--right font-weight--bold" colspan="3">
+                Total R$ 2900,90
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </section>
+    </main>
+
+    <script src="./js/app.js" type="module"></script>
+  </body>
+</html>
