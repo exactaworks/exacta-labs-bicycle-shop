@@ -5,7 +5,7 @@ import { setListener } from '../utils/dom.js';
 
 export default class ProductsController {
   constructor() {
-    this.productsView = new ProductsView('#product-list');
+    this.productsView = new ProductsView('#products');
     this.productsModel = new ProductsModel();
     this.productsService = new ProductsService();
 
