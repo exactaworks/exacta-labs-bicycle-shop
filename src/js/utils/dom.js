@@ -4,4 +4,8 @@ const setListener = (selector, event, callback) => {
   element.addEventListener(event, callback);
 };
 
-export { setListener };
+const getTarget = (target, selector) => {
+  return target.matches(selector) ? target : target.closest(selector);
+};
+
+export { setListener, getTarget };
