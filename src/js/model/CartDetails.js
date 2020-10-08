@@ -21,11 +21,13 @@ export default class CartDetailsModel {
 
     this.products[productIndex].amount -= 1;
 
-    setStorageItem(CART_STORAGE_KEY, this.products);
-
     if (this.products[productIndex].amount === 0) {
       this.remove(this.products[productIndex].id);
+
+      return;
     }
+
+    setStorageItem(CART_STORAGE_KEY, this.products);
   }
 
   remove(productId) {

@@ -47,12 +47,7 @@ export default class CartDetailsController {
   handleIncrementProduct(event) {
     const target = getTarget(event.target, '[data-cart-increment]');
 
-    if (target) {
-      const productId = target.getAttribute('data-product-id');
-
-      this.cartDetailsModel.increment(productId);
-      this.cartDetailsView.render(this.cartDetailsModel.products);
-    }
+    this.updateCartDetails(target, 'increment');
   }
 
   setDecrementProductListener() {
@@ -63,15 +58,10 @@ export default class CartDetailsController {
     );
   }
 
-  handleDecrementProduct() {
+  handleDecrementProduct(event) {
     const target = getTarget(event.target, '[data-cart-decrement]');
 
-    if (target) {
-      const productId = target.getAttribute('data-product-id');
-
-      this.cartDetailsModel.decrement(productId);
-      this.cartDetailsView.render(this.cartDetailsModel.products);
-    }
+    this.updateCartDetails(target, 'decrement');
   }
 
   setRemoveProductListener() {
@@ -81,11 +71,17 @@ export default class CartDetailsController {
   handleRemoveProduct(event) {
     const target = getTarget(event.target, '[data-cart-remove]');
 
-    if (target) {
-      const productId = target.getAttribute('data-product-id');
+    this.updateCartDetails(target, 'remove');
+  }
 
-      this.cartDetailsModel.remove(productId);
-      this.cartDetailsView.render(this.cartDetailsModel.products);
+  updateCartDetails(target, action) {
+    if (!target) {
+      return;
     }
+
+    const productId = target.getAttribute('data-product-id');
+
+    this.cartDetailsModel[action]?.(productId);
+    this.cartDetailsView.render(this.cartDetailsModel.products);
   }
 }
