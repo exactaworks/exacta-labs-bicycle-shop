@@ -1,9 +1,10 @@
+import CartModel from '../models/Cart.js';
 import CartView from '../views/Cart.js';
 import { setCustomListener } from '../utils/dom.js';
 import { CUSTOM_EVENTS } from '../constants.js';
 
 export default class ProductsController {
-  constructor(cartModel) {
+  constructor(cartModel = new CartModel()) {
     this.cartModel = cartModel;
     this.cartView = new CartView('#cart');
 
