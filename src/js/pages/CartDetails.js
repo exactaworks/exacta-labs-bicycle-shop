@@ -1,8 +1,13 @@
+import CartModel from '../model/Cart.js';
+import CartController from '../controllers/Cart.js';
 import CartDetailsController from '../controllers/CartDetails.js';
 
 class CartDetails {
   constructor() {
-    this.cartDetailsController = new CartDetailsController();
+    const cartModel = new CartModel();
+
+    this.cartController = new CartController(cartModel);
+    this.cartDetailsController = new CartDetailsController(cartModel);
   }
 }
 

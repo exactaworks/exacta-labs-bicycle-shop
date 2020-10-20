@@ -12,28 +12,25 @@ export default class CartView extends View {
 
     if (!amount) {
       return `
-        <button
+        <a href="/cart.html"
           class="cart__button"
           title="Nenhum produto adicionado"
           aria-label="Carrinho de compras"
-          type="button"
-          disabled
         >
           ${icon}
-        </button>
+        </a>
       `;
     }
 
     return `
-      <button
+      <a href="/cart.html"
         class="cart__button cart__button--has-products"
         title="${amount} produto(s) adicionado(s)"
         data-cart-amount="${amount}"
         aria-label="Carrinho de compras"
-        type="button"
       >
         ${icon}
-      </button>
+      </a>
     `;
   }
 }

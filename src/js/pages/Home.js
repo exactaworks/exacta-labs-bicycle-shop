@@ -1,10 +1,13 @@
 import ProductsController from '../controllers/Products.js';
+import CartModel from '../model/Cart.js';
 import CartController from '../controllers/Cart.js';
 
 class Home {
   constructor() {
+    const cartModel = new CartModel();
+
     this.productsController = new ProductsController();
-    this.cartController = new CartController();
+    this.cartController = new CartController(cartModel);
   }
 }
 
