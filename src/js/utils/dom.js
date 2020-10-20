@@ -8,4 +8,18 @@ const getTarget = (target, selector) => {
   return target.matches(selector) ? target : target.closest(selector);
 };
 
-export { setListener, getTarget };
+const setCustomListener = (event, callback) => {
+  document.addEventListener(event, callback);
+};
+
+const dispatchCustomEvent = (event, data) => {
+  document.dispatchEvent(
+    new CustomEvent(event, {
+      detail: {
+        ...data,
+      },
+    })
+  );
+};
+
+export { setListener, getTarget, setCustomListener, dispatchCustomEvent };

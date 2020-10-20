@@ -1,10 +1,10 @@
-import CartModel from '../model/Cart.js';
 import CartView from '../views/Cart.js';
-import { setListener } from '../utils/dom.js';
+import { setCustomListener } from '../utils/dom.js';
+import { CUSTOM_EVENTS } from '../constants.js';
 
 export default class ProductsController {
-  constructor() {
-    this.cartModel = new CartModel();
+  constructor(cartModel) {
+    this.cartModel = cartModel;
     this.cartView = new CartView('#cart');
 
     this.init();
@@ -14,6 +14,9 @@ export default class ProductsController {
     this.initialRender();
 
     this.setAddProductListener();
+    this.setIncrementProductListener();
+    this.setDecrementProductListener();
+    this.setRemoveProductListener();
   }
 
   initialRender() {
@@ -21,14 +24,51 @@ export default class ProductsController {
   }
 
   setAddProductListener() {
-    setListener('#products', 'click', this.handleAddProduct.bind(this));
+    setCustomListener(CUSTOM_EVENTS.CART_ADD, this.handleAddProduct.bind(this));
   }
 
   handleAddProduct(event) {
-    const productId = event.target.getAttribute('data-product-id');
+    this.updateCart(event, 'add');
+  }
+
+  setIncrementProductListener() {
+    setCustomListener(
+      CUSTOM_EVENTS.CART_INCREMENT,
+      this.handleIncrementProduct.bind(this)
+    );
+  }
+
+  handleIncrementProduct(event) {
+    this.updateCart(event, 'increment');
+  }
+
+  setDecrementProductListener() {
+    setCustomListener(
+      CUSTOM_EVENTS.CART_DECREMENT,
+      this.handleDecrementProduct.bind(this)
+    );
+  }
+
+  handleDecrementProduct(event) {
+    this.updateCart(event, 'decrement');
+  }
+
+  setRemoveProductListener() {
+    setCustomListener(
+      CUSTOM_EVENTS.CART_REMOVE,
+      this.handleRemoveProduct.bind(this)
+    );
+  }
+
+  handleRemoveProduct(event) {
+    this.updateCart(event, 'remove');
+  }
+
+  updateCart(event, action) {
+    const { productId } = event.detail;
 
     if (productId) {
-      this.cartModel.addProduct(productId);
+      this.cartModel[action](productId);
       this.cartView.render(this.cartModel.amount);
     }
   }
