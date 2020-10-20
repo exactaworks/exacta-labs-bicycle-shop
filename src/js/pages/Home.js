@@ -1,5 +1,5 @@
+import CartModel from '../models/Cart.js';
 import ProductsController from '../controllers/Products.js';
-import CartModel from '../model/Cart.js';
 import CartController from '../controllers/Cart.js';
 
 class Home {

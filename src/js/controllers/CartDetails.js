@@ -1,10 +1,11 @@
+import CartModel from '../models/Cart.js';
 import CartDetails from '../views/CartDetails.js';
 import ProductsService from '../services/products.js';
 import { setListener, getTarget, dispatchCustomEvent } from '../utils/dom.js';
 import { CUSTOM_EVENTS } from '../constants.js';
 
 export default class CartDetailsController {
-  constructor(cartModel) {
+  constructor(cartModel = new CartModel()) {
     this.cartModel = cartModel;
     this.cartDetailsView = new CartDetails('#cart-details');
     this.productsService = new ProductsService();

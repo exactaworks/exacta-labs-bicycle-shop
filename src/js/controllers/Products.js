@@ -1,5 +1,5 @@
 import ProductsView from '../views/Products.js';
-import ProductsModel from '../model/Products.js';
+import ProductsModel from '../models/Products.js';
 import ProductsService from '../services/products.js';
 import { setListener, dispatchCustomEvent } from '../utils/dom.js';
 import { CUSTOM_EVENTS } from '../constants.js';
