@@ -348,7 +348,7 @@ const customer = {
   name: 'Eric',
   email: 'eric@exactaworks.com.br',
   phone: null,
-  adresses: [
+  addresses: [
     {
       address: 'Av. João Barbosa',
       number: '111',
