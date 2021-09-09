@@ -1,39 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
+    <meta
+      name="description"
+      content="Loja Bicycle Shop - as melhores bikes do mundo"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="./styles/styles.css" />
 
-    <title>Carrinho de compras - Bicycle Shop</title>
+    <title>Bicycle Shop</title>
   </head>
-
   <body>
     <header class="header wrapper">
-      <h1 class="logo">
-        <a href="/">
-          <img
-            class="logo__img"
-            src="./assets/images/logo.svg"
-            alt="Logo da Bicycle Shop"
-          />
-        </a>
-      </h1>
+      <a href="/" class="logo">
+        <img
+          class="logo__img"
+          src="/assets/images/logo.svg"
+          alt="Logo da loja Bicycle Shop"
+        />
+      </a>
 
-      <p class="header__title">Paixão pela Bike, sede por desafios</p>
+      <p class="header__title">Paixão pela bike, sede por desafios</p>
 
       <div id="cart" class="cart"></div>
     </header>
 
-    <main class="wrapper margin--vertical-1">
-      <section class="card padding-1">
-        <h2 class="cart__title">Itens do carrinho</h2>
+    <main class="wrapper mv-1">
+      <section class="card p-1">
+        <h2>Itens do carrinho</h2>
 
         <div id="cart-details"></div>
       </section>
     </main>
 
-    <script src="./js/app.js" type="module"></script>
+    <script type="module" src="./js/app.js"></script>
   </body>
 </html>

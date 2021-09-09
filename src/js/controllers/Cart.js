@@ -1,9 +1,8 @@
 import CartModel from '../models/Cart.js';
 import CartView from '../views/Cart.js';
 import { setCustomListener } from '../utils/dom.js';
-import { CUSTOM_EVENTS } from '../constants.js';
 
-export default class ProductsController {
+export default class CartController {
   constructor(cartModel = new CartModel()) {
     this.cartModel = cartModel;
     this.cartView = new CartView('#cart');
@@ -14,10 +13,15 @@ export default class ProductsController {
   init() {
     this.initialRender();
 
+    this.setListeners();
+  }
+
+  setListeners() {
     this.setAddProductListener();
     this.setIncrementProductListener();
     this.setDecrementProductListener();
     this.setRemoveProductListener();
+    this.setClearListener();
   }
 
   initialRender() {
@@ -25,7 +29,7 @@ export default class ProductsController {
   }
 
   setAddProductListener() {
-    setCustomListener(CUSTOM_EVENTS.CART_ADD, this.handleAddProduct.bind(this));
+    setCustomListener('cart:add', this.handleAddProduct.bind(this));
   }
 
   handleAddProduct(event) {
@@ -33,10 +37,7 @@ export default class ProductsController {
   }
 
   setIncrementProductListener() {
-    setCustomListener(
-      CUSTOM_EVENTS.CART_INCREMENT,
-      this.handleIncrementProduct.bind(this)
-    );
+    setCustomListener('cart:increment', this.handleIncrementProduct.bind(this));
   }
 
   handleIncrementProduct(event) {
@@ -44,10 +45,7 @@ export default class ProductsController {
   }
 
   setDecrementProductListener() {
-    setCustomListener(
-      CUSTOM_EVENTS.CART_DECREMENT,
-      this.handleDecrementProduct.bind(this)
-    );
+    setCustomListener('cart:decrement', this.handleDecrementProduct.bind(this));
   }
 
   handleDecrementProduct(event) {
@@ -55,14 +53,20 @@ export default class ProductsController {
   }
 
   setRemoveProductListener() {
-    setCustomListener(
-      CUSTOM_EVENTS.CART_REMOVE,
-      this.handleRemoveProduct.bind(this)
-    );
+    setCustomListener('cart:remove', this.handleRemoveProduct.bind(this));
   }
 
   handleRemoveProduct(event) {
     this.updateCart(event, 'remove');
+  }
+
+  setClearListener() {
+    setCustomListener('cart:clear', this.handleClear.bind(this));
+  }
+
+  handleClear() {
+    this.cartModel.clear();
+    this.cartView.render();
   }
 
   updateCart(event, action) {

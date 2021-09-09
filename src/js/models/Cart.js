@@ -1,11 +1,11 @@
+import { setStorageItem, getStorageItem, removeStorageItem } from '../utils/storage.js';
 import { CART_STORAGE_KEY } from '../constants.js';
-import { setStorageItem, getStorageItem } from '../utils/storage.js';
 
 export default class CartModel {
   products = getStorageItem(CART_STORAGE_KEY) || [];
 
   #getProductIndex(productId) {
-    return this.products.findIndex((product) => product.id === productId);
+    return this.products.findIndex((item) => item.id === productId);
   }
 
   add(productId) {
@@ -51,10 +51,15 @@ export default class CartModel {
     setStorageItem(CART_STORAGE_KEY, this.products);
   }
 
+  clear() {
+    this.products.length = 0;
+
+    removeStorageItem(CART_STORAGE_KEY);
+  }
+
   get amount() {
-    return this.products.reduce(
-      (accumulator, product) => accumulator + product.amount,
-      0
-    );
+    return this.products.reduce((accumulator, product) => {
+      return accumulator + product.amount;
+    }, 0);
   }
 }
