@@ -4,16 +4,22 @@ import { formatToBRL } from '../utils/currency.js';
 export default class CartDetailsView extends View {
   template(products = []) {
     if (!products.length) {
-      return `<p>Nenhum produto adicionado no carrinho</p>`;
+      return `
+        <p>Nenhum produto adicionado no carrinho</p>
+
+        <div class="grid grid-auto-fill mt-1">
+          <a class="button button--outlined" href="/">Voltar para os produtos</a>
+        </div>
+      `;
     }
 
     return `
       <table class="table">
         <thead>
           <tr>
-            <th class="text-align--left">Produto</th>
+            <th class="ta-left">Produto</th>
             <th>Qtd</th>
-            <th class="text-align--right">Preço</th>
+            <th class="ta-right">Preço</th>
           </tr>
         </thead>
 
@@ -22,11 +28,11 @@ export default class CartDetailsView extends View {
             return `
               ${accumulator}
               <tr>
-                <td class="text-align--left">${name}</td>
-                <td class="text-align--center">
-                  <div class="flex--middle">
+                <td class="ta-left">${name}</td>
+                <td class="ta-center">
+                  <div class="flex-middle">
                     <button
-                      class="button button--transparent margin--horizontal-1"
+                      class="button button--transparent mh-1"
                       aria-label="Remover 1"
                       data-product-id="${id}"
                       data-cart-decrement
@@ -41,7 +47,7 @@ export default class CartDetailsView extends View {
                     <span aria-label="Quantidade do produto">${amount}</span>
 
                     <button
-                      class="button button--transparent margin--horizontal-1"
+                      class="button button--transparent mh-1"
                       aria-label="Adicionar 1"
                       data-product-id="${id}"
                       data-cart-increment
@@ -50,8 +56,8 @@ export default class CartDetailsView extends View {
                     </button>
                   </div>
                 </td>
-                <td class="text-align--right">${formatToBRL(price)}</td>
-                <td class="text-align--right">
+                <td class="ta-right">${formatToBRL(price)}</td>
+                <td class="ta-right">
                   <button
                     class="button button--transparent"
                     aria-label="Remover do carrinho"
@@ -68,7 +74,7 @@ export default class CartDetailsView extends View {
 
         <tfoot>
           <tr>
-            <td class="text-align--right font-weight--bold" colspan="3">
+            <td class="ta-right fw-bold" colspan="3">
               Total ${formatToBRL(
                 products.reduce(
                   (accumulator, { price, amount }) =>
@@ -80,6 +86,11 @@ export default class CartDetailsView extends View {
           </tr>
         </tfoot>
       </table>
+
+      <div class="grid grid-auto-fill mv-1">
+        <a class="button button--outlined" href="/">Ver mais produtos</a>
+        <a class="button button--primary" href="/order-form.html">Continuar a compra</a>
+      </div>
     `;
   }
 }

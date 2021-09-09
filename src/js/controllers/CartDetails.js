@@ -1,14 +1,11 @@
-import CartModel from '../models/Cart.js';
-import CartDetails from '../views/CartDetails.js';
-import ProductsService from '../services/products.js';
-import { setListener, getTarget, dispatchCustomEvent } from '../utils/dom.js';
-import { CUSTOM_EVENTS } from '../constants.js';
+import CartDetailsView from '../views/CartDetails.js';
+import { getProducts } from '../services/products.js';
+import { setListener, dispatchCustomEvent, getTarget } from '../utils/dom.js';
 
 export default class CartDetailsController {
-  constructor(cartModel = new CartModel()) {
+  constructor(cartModel) {
     this.cartModel = cartModel;
-    this.cartDetailsView = new CartDetails('#cart-details');
-    this.productsService = new ProductsService();
+    this.cartDetailsView = new CartDetailsView('#cart-details');
 
     this.init();
   }
@@ -16,23 +13,27 @@ export default class CartDetailsController {
   init() {
     this.initialRender();
 
-    this.setIncrementProductListener();
-    this.setDecrementProductListener();
-    this.setRemoveProductListener();
+    this.setListeners();
   }
 
   async initialRender() {
     const productsPromises = this.cartModel.products.map(async (item) => {
-      const product = await this.productsService.getProductById(item.id);
+      const product = await getProducts(item.id);
 
       return {
         ...product,
         amount: item.amount,
-      };
+      }
     });
 
     this.cartModel.products = await Promise.all(productsPromises);
     this.cartDetailsView.render(this.cartModel.products);
+  }
+
+  setListeners() {
+    this.setIncrementProductListener();
+    this.setDecrementProductListener();
+    this.setRemoveProductListener();
   }
 
   setIncrementProductListener() {
@@ -40,13 +41,13 @@ export default class CartDetailsController {
       '#cart-details',
       'click',
       this.handleIncrementProduct.bind(this)
-    );
+    )
   }
 
   handleIncrementProduct(event) {
     const target = getTarget(event.target, '[data-cart-increment]');
 
-    this.updateCartDetails(target, CUSTOM_EVENTS.CART_INCREMENT);
+    this.updateCartDetails(target, 'cart:increment');
   }
 
   setDecrementProductListener() {
@@ -54,26 +55,30 @@ export default class CartDetailsController {
       '#cart-details',
       'click',
       this.handleDecrementProduct.bind(this)
-    );
+    )
   }
 
   handleDecrementProduct(event) {
     const target = getTarget(event.target, '[data-cart-decrement]');
 
-    this.updateCartDetails(target, CUSTOM_EVENTS.CART_DECREMENT);
+    this.updateCartDetails(target, 'cart:decrement');
   }
 
   setRemoveProductListener() {
-    setListener('#cart-details', 'click', this.handleRemoveProduct.bind(this));
+    setListener(
+      '#cart-details',
+      'click',
+      this.handleRemoveProduct.bind(this)
+    )
   }
 
   handleRemoveProduct(event) {
     const target = getTarget(event.target, '[data-cart-remove]');
 
-    this.updateCartDetails(target, CUSTOM_EVENTS.CART_REMOVE);
+    this.updateCartDetails(target, 'cart:remove');
   }
 
-  async updateCartDetails(target, event) {
+  updateCartDetails(target, event) {
     if (!target) {
       return;
     }
@@ -82,6 +87,7 @@ export default class CartDetailsController {
 
     if (productId) {
       dispatchCustomEvent(event, { productId });
+
       this.cartDetailsView.render(this.cartModel.products);
     }
   }
