@@ -2,8 +2,8 @@ export default class ProductsModel {
   products = [];
   filters = {
     search: '',
-    sortCriteria: 'asc',
     category: 'all',
+    sortCriteria: 'asc',
   };
 
   set products(products) {

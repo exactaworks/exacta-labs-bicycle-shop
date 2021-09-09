@@ -1,11 +1,13 @@
-import { products } from '../mocks/products.js';
+import { API_BASE_URL } from '../constants.js'
 
-export default class ProductsService {
-  async getProducts() {
-    return products;
-  }
+const getProducts = async (id = '') => {
+  const response = await fetch(`${API_BASE_URL}/products/${id}`, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
 
-  async getProductById(id) {
-    return products.find((product) => product.id === id);
-  }
+  return response.json();
 }
+
+export { getProducts };

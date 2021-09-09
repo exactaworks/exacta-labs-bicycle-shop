@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
+    <meta
+      name="description"
+      content="Loja Bicycle Shop - as melhores bikes do mundo"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -14,17 +18,17 @@
       <h1 class="logo">
         <img
           class="logo__img"
-          src="./assets/images/logo.svg"
-          alt="Logo da Bicycle Shop"
+          src="/assets/images/logo.svg"
+          alt="Logo da loja Bicycle Shop"
         />
       </h1>
 
-      <p class="header__title">Paixão pela Bike, sede por desafios</p>
+      <p class="header__title">Paixão pela bike, sede por desafios</p>
 
       <div id="cart" class="cart"></div>
     </header>
 
-    <main class="wrapper margin--vertical-1">
+    <main class="wrapper">
       <section class="filters">
         <input
           id="search-field"
@@ -46,10 +50,10 @@
       </section>
 
       <section>
-        <ul id="products" class="product-list"></ul>
+        <ul id="product-list" class="grid grid-auto-fill p-0 ls-none"></ul>
       </section>
     </main>
 
-    <script src="./js/app.js" type="module"></script>
+    <script type="module" src="./js/app.js"></script>
   </body>
 </html>

@@ -1,14 +1,12 @@
 import ProductsView from '../views/Products.js';
 import ProductsModel from '../models/Products.js';
-import ProductsService from '../services/products.js';
+import { getProducts } from '../services/products.js';
 import { setListener, dispatchCustomEvent } from '../utils/dom.js';
-import { CUSTOM_EVENTS } from '../constants.js';
 
 export default class ProductsController {
   constructor() {
-    this.productsView = new ProductsView('#products');
+    this.productsView = new ProductsView('#product-list');
     this.productsModel = new ProductsModel();
-    this.productsService = new ProductsService();
 
     this.init();
   }
@@ -16,77 +14,61 @@ export default class ProductsController {
   init() {
     this.initialRender();
 
-    this.setSearchFieldListener();
-    this.setCategoryFieldListener();
-    this.setSortFieldListener();
-    this.setAddProductListener();
+    this.setListeners();
   }
 
   async initialRender() {
-    const products = await this.productsService.getProducts();
+    const products = await getProducts();
 
     this.productsModel.products = products;
     this.productsView.render(products);
   }
 
-  setSearchFieldListener() {
+  setListeners() {
     setListener('#search-field', 'input', this.handleSearchFilter.bind(this));
+    setListener('#category-field', 'change', this.handleCategoryFilter.bind(this));
+    setListener('#sort-field', 'change', this.handleSort.bind(this));
+    setListener('#product-list', 'click', this.handleAddProduct.bind(this));
   }
 
-  handleSearchFilter(event) {
-    const search = event.target.value.trim();
+  handleAddProduct({ target }) {
+    const productId = target.getAttribute('data-product-id');
+
+    if (productId) {
+      dispatchCustomEvent('cart:add', { productId });
+    }
+  }
+
+  handleSearchFilter({ target }) {
+    const search = target.value.trim();
     const searchLength = search.length;
 
-    if (searchLength === 0 || searchLength > 1) {
+    if (searchLength === 0 || searchLength > 2) {
       this.applyFilters({ search });
     }
   }
 
-  setCategoryFieldListener() {
-    setListener(
-      '#category-field',
-      'change',
-      this.handleCategoryFilter.bind(this)
-    );
+  handleCategoryFilter({ target }) {
+    this.applyFilters({ category: target.value });
   }
 
-  handleCategoryFilter(event) {
-    this.applyFilters({ category: event.target.value });
-  }
-
-  setSortFieldListener() {
-    setListener('#sort-field', 'change', this.handleSort.bind(this));
-  }
-
-  handleSort(event) {
-    this.applyFilters({ sortCriteria: event.target.value });
+  handleSort({ target }) {
+    this.applyFilters({ sortCriteria: target.value });
   }
 
   applyFilters({
     search = this.productsModel.filters.search,
-    sortCriteria = this.productsModel.filters.sortCriteria,
     category = this.productsModel.filters.category,
-  } = {}) {
+    sortCriteria = this.productsModel.filters.sortCriteria,
+  }) {
     this.productsModel.filters = {
       search,
-      sortCriteria,
       category,
+      sortCriteria,
     };
 
     const products = this.productsModel.applyFilters();
 
     this.productsView.render(products);
-  }
-
-  setAddProductListener() {
-    setListener('#products', 'click', this.handleAddProduct.bind(this));
-  }
-
-  handleAddProduct(event) {
-    const productId = event.target.getAttribute('data-product-id');
-
-    if (productId) {
-      dispatchCustomEvent(CUSTOM_EVENTS.CART_ADD, { productId });
-    }
   }
 }
