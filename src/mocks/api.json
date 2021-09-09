@@ -1,0 +1,100 @@
+{
+  "products": [
+    {
+      "id": "dcd5461d-0da3-40c3-a5d0-625e98eb46b1",
+      "name": "Mountain Bike Everest",
+      "category": "bike",
+      "price": 2250.5,
+      "image": "./assets/images/products/mountain-bike-everest.png"
+    },
+    {
+      "id": "afcff8b1-19c2-4e26-ad01-c46f2fd27803",
+      "name": "Speed Bike Emigrantes",
+      "category": "bike",
+      "price": 5640,
+      "image": "./assets/images/products/speed-bike-emigrantes.png"
+    },
+    {
+      "id": "d0e5f15e-cd68-4cff-8d0d-5391f0d3b5ff",
+      "name": "Chinatown Classic Bike",
+      "category": "bike",
+      "price": 799.9,
+      "image": "./assets/images/products/chinatown-classic-bike.png"
+    },
+    {
+      "id": "c92f05ae-0eb0-474a-8428-4ff2d88f5d43",
+      "name": "Luvas Tyson",
+      "category": "equipment",
+      "price": 189.9,
+      "image": "./assets/images/products/tyson-gloves.png"
+    },
+    {
+      "id": "fe3f7799-c00a-4f7d-9785-c68d5dd363bc",
+      "name": "Squeezer Squirtle",
+      "category": "equipment",
+      "price": 30,
+      "image": "./assets/images/products/squeezer-squirtle.png"
+    },
+    {
+      "id": "b955b52f-86a9-499e-8d6e-8614ee2b92b6",
+      "name": "Capacete Dragon Born",
+      "category": "equipment",
+      "price": 650.9,
+      "image": "./assets/images/products/dragon-born-helmet.png"
+    },
+    {
+      "id": "1cd396ff-32be-453d-ad11-57e950b6d8c2",
+      "name": "BMX Crosses",
+      "category": "bike",
+      "price": "1250.5",
+      "image": "./assets/images/products/crosses-bmx.png"
+    },
+    {
+      "id": "ee9ba3e0-8c9e-40a5-9980-c5c8d4586a71",
+      "name": "Tandem Bike Buscapé",
+      "category": "bike",
+      "price": "1999.9",
+      "image": "./assets/images/products/buscape-tandem-bike.png"
+    }
+  ],
+  "order": {
+    "name": "Eric",
+    "lastName": "dos Reis Santos",
+    "birthDate": "1991-09-09",
+    "cpf": "409.227.608-70",
+    "email": "ericdosreis.personal@gmail.com",
+    "primaryPhone": "(16) 99299-1076",
+    "secondaryPhone": "",
+    "zipcode": "14801-167",
+    "address": "Avenida Prudente de Moraes, 1780",
+    "addressNumber": "11",
+    "district": "Santana",
+    "state": "sp",
+    "city": "araraquara",
+    "complement": "",
+    "paymentMethod": "bank-slip",
+    "installments": "1",
+    "cardNumber": "",
+    "cardDate": "",
+    "cardName": "",
+    "cardCVV": "",
+    "products": [
+      {
+        "id": "d0e5f15e-cd68-4cff-8d0d-5391f0d3b5ff",
+        "name": "Chinatown Classic Bike",
+        "category": "bike",
+        "price": 799.9,
+        "image": "./assets/images/products/chinatown-classic-bike.png",
+        "amount": 1
+      },
+      {
+        "id": "b955b52f-86a9-499e-8d6e-8614ee2b92b6",
+        "name": "Capacete Dragon Born",
+        "category": "equipment",
+        "price": 650.9,
+        "image": "./assets/images/products/dragon-born-helmet.png",
+        "amount": 1
+      }
+    ]
+  }
+}

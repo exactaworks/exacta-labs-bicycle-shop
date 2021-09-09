@@ -1,0 +1,24 @@
+{
+  "name": "bicycle-shop",
+  "version": "0.1.0",
+  "description": "A simple project to learn HTML, CSS and JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server src",
+    "api": "json-server --watch src/mocks/api.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EricDosReis/bicycle-shop.git"
+  },
+  "author": "EricDosReis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EricDosReis/bicycle-shop/issues"
+  },
+  "homepage": "https://github.com/EricDosReis/bicycle-shop#readme",
+  "devDependencies": {
+    "http-server": "^0.12.3",
+    "json-server": "^0.16.3"
+  }
+}
