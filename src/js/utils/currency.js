@@ -1,8 +1,8 @@
 const formatToBRL = (number) => {
-  return number.toLocaleString('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-  });
-};
+  return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }).format(number);
+}
 
 export { formatToBRL };
