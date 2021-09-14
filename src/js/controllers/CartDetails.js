@@ -1,5 +1,5 @@
 import CartDetailsView from '../views/CartDetails.js';
-import { getProducts } from '../services/products.js';
+import { getProduct } from '../services/products.js';
 import { setListener, dispatchCustomEvent, getTarget } from '../utils/dom.js';
 
 export default class CartDetailsController {
@@ -18,7 +18,7 @@ export default class CartDetailsController {
 
   async initialRender() {
     const productsPromises = this.cartModel.products.map(async (item) => {
-      const product = await getProducts(item.id);
+      const product = await getProduct(item.id);
 
       return {
         ...product,

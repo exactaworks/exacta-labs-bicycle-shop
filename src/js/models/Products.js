@@ -1,45 +1,50 @@
 export default class ProductsModel {
-  products = [];
   filters = {
     search: '',
     category: 'all',
-    sortCriteria: 'asc',
+    sortCriteria: '',
   };
 
-  set products(products) {
-    this.products = [...products];
-  }
-
-  filterBySearch(product) {
+  filterBySearch() {
     if (this.filters.search === '') {
-      return true;
+      return '';
     }
 
-    return product.name
-      .toLowerCase()
-      .includes(this.filters.search.toLowerCase());
+    return {
+      'name_like': this.filters.search.toLowerCase(),
+    }
   }
 
-  filterByCategory(product) {
+  filterByCategory() {
     if (this.filters.category === 'all') {
-      return true;
+      return '';
     }
 
-    return product.category === this.filters.category;
+    return {
+      category: this.filters.category,
+    }
   }
 
-  sortByPrice(a, b) {
-    if (this.filters.sortCriteria === 'asc') {
-      return a.price - b.price;
+  sortByPrice() {
+    if (this.filters.sortCriteria === '') {
+      return '';
     }
 
-    return b.price - a.price;
+    return {
+      '_sort': 'price',
+      '_order': this.filters.sortCriteria,
+    }
   }
 
-  applyFilters() {
-    return this.products
-      .filter(this.filterByCategory.bind(this))
-      .filter(this.filterBySearch.bind(this))
-      .sort(this.sortByPrice.bind(this));
+  buildFilters() {
+    const filterBySearch = this.filterBySearch();
+    const filterByCategory = this.filterByCategory();
+    const sortByPrice = this.sortByPrice();
+
+    return new URLSearchParams({
+      ...(filterBySearch ? filterBySearch : {}),
+      ...(filterByCategory ? filterByCategory : {}),
+      ...(sortByPrice ? sortByPrice : {}),
+    }).toString();
   }
 }

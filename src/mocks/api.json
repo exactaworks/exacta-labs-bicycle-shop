@@ -46,14 +46,14 @@
       "id": "1cd396ff-32be-453d-ad11-57e950b6d8c2",
       "name": "BMX Crosses",
       "category": "bike",
-      "price": "1250.5",
+      "price": 1250.5,
       "image": "./assets/images/products/crosses-bmx.png"
     },
     {
       "id": "ee9ba3e0-8c9e-40a5-9980-c5c8d4586a71",
       "name": "Tandem Bike Buscapé",
       "category": "bike",
-      "price": "1999.9",
+      "price": 1999.9,
       "image": "./assets/images/products/buscape-tandem-bike.png"
     }
   ],

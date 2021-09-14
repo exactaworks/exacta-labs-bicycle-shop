@@ -2,6 +2,7 @@ import ProductsView from '../views/Products.js';
 import ProductsModel from '../models/Products.js';
 import { getProducts } from '../services/products.js';
 import { setListener, dispatchCustomEvent } from '../utils/dom.js';
+import { debounce } from '../utils/debounce.js';
 
 export default class ProductsController {
   constructor() {
@@ -20,7 +21,6 @@ export default class ProductsController {
   async initialRender() {
     const products = await getProducts();
 
-    this.productsModel.products = products;
     this.productsView.render(products);
   }
 
@@ -56,7 +56,7 @@ export default class ProductsController {
     this.applyFilters({ sortCriteria: target.value });
   }
 
-  applyFilters({
+  async applyFilters({
     search = this.productsModel.filters.search,
     category = this.productsModel.filters.category,
     sortCriteria = this.productsModel.filters.sortCriteria,
@@ -67,7 +67,8 @@ export default class ProductsController {
       sortCriteria,
     };
 
-    const products = this.productsModel.applyFilters();
+    const filters = this.productsModel.buildFilters();
+    const products = await getProducts(filters);
 
     this.productsView.render(products);
   }

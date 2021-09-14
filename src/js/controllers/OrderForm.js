@@ -1,7 +1,7 @@
 import CartModel from '../models/Cart.js';
 import OrderFormModel from '../models/OrderForm.js';
 import OrderFormView from '../views/OrderForm.js';
-import { getProducts } from '../services/products.js';
+import { getProduct } from '../services/products.js';
 import { sendOrder } from '../services/order.js';
 import { getFieldsValues, isInvalid } from '../utils/form.js';
 import {
@@ -34,7 +34,7 @@ export default class OrderFormController {
 
   async initialRender() {
     const productsPromises = this.cartModel.products.map(async (item) => {
-      const product = await getProducts(item.id);
+      const product = await getProduct(item.id);
 
       return {
         ...product,
